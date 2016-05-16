@@ -1,0 +1,26 @@
+﻿{
+    "package": {
+        "name": "GapAnalysis",
+        "displayName": "Gap Analysis",
+        "guid": "GapAnalysis1448688115699",
+        "version": "0.1.0",
+        "description": "A power bi visual to analyze the gap in metrics",
+        "build": "13.0.1100.210",
+        "author": {
+            "name": "Shankarr Kalyanaraaman",
+            "email": "shankak@microsoft.com"
+        },
+        "licenseTerms": "",
+        "privacyTerms": "",
+        "supportUrl": "",
+        "gitHubUrl": "",
+        "images": {
+            
+        },
+        "code": {
+            "typeScript": "GapAnalysis.ts",
+            "javaScript": "GapAnalysis.js",
+            "css": "GapAnalysis.css"
+        }
+    }
+}
