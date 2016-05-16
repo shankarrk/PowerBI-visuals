@@ -124,6 +124,9 @@ module powerbi.visuals.visualPluginFactory {
 
             // Stream Graph
             createPlugin(this.customVisualPlugins, powerbi.visuals.plugins.streamGraph, () => new samples.StreamGraph());
+
+            // Gap Analysis
+            createPlugin(this.customVisualPlugins, powerbi.visuals.plugins.gapAnalysis, () => new samples.GapAnalysis());
         }
     }
 

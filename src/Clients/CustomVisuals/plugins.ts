@@ -125,6 +125,12 @@ module powerbi.visuals.plugins {
         create: () => new samples.Gantt()
     };
 
+    export var gapAnalysis: IVisualPlugin = {
+        name: "gapAnalysis",
+        capabilities: samples.GapAnalysis.capabilities,
+        create: () => new samples.GapAnalysis()
+    };
+
     export let streamGraph: IVisualPlugin = {
         name: "streamGraph",
         capabilities: samples.StreamGraph.capabilities,

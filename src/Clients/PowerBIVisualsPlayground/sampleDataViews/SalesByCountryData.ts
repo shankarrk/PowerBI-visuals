@@ -68,6 +68,7 @@ module powerbi.visuals.sampleDataViews {
                         isMeasure: true,
                         format: "$0,000.00",
                         queryName: 'sales1',
+                        groupName: '2014',
                         type: powerbi.ValueType.fromDescriptor({ numeric: true }),
                         objects: { dataPoint: { fill: { solid: { color: 'purple' } } } },
                         roles: { Y: true }
@@ -77,6 +78,7 @@ module powerbi.visuals.sampleDataViews {
                         isMeasure: true,
                         format: "$0,000.00",
                         queryName: 'sales2',
+                        groupName: '2015',
                         type: powerbi.ValueType.fromDescriptor({ numeric: true }),
                         roles: { Y: true }
                     }

@@ -26,6 +26,7 @@
         "visuals/dotPlot/visual/dotPlot.ts",
         "visuals/forceGraph/visual/forceGraph.ts",
         "visuals/gantt/visual/gantt.ts",
+        "visuals/gapAnalysis/visual/gapAnalysis.ts",
         "visuals/timeline/visual/timeline.ts",
         "visuals/streamGraph/visual/streamGraph.ts",
         "visuals/sunburst/visual/sunburst.ts",
