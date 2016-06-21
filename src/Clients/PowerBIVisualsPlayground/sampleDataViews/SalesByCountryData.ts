@@ -36,9 +36,18 @@ module powerbi.visuals.sampleDataViews {
 
         private sampleData = [
             [742731.43, 162066.43, 283085.78, 300263.49, 376074.57, 814724.34],
-            [123455.43, 40566.43, 200457.78, 5000.49, 320000.57, 450000.34]
+            [123455.43, 40566.43, 200457.78, 5000.49, 320000.57, 450000.34],
+			[111955.43, 20566.43, 100457.78, 1000.49, 720000.57, 950000.34],
+			[31955.43, 566.43, 190457.78, 178000.49, 20000.57, 50000.34],
+			[15955.43, 120566.43, 144457.78, 21000.49, 290000.57, 530000.34],
+			[11255.43, 230566.43, 101457.78, 10000.49, 720000.57, 850000.34],
         ];
-        
+
+        //private sampleData = [
+        //    [0.277247626, 0.06049634, 0.105670579, 0.112082694, 0.14038154, 0.304121221],
+        //    [0.11234306, 0.182414337, 0.00455039, 0.291196938, 0.409495275, 0.567638383]
+        //];
+
         private sampleMin: number = 30000;
         private sampleMax: number = 1000000;
 
@@ -53,7 +62,7 @@ module powerbi.visuals.sampleDataViews {
                 var expr = powerbi.data.SQExprBuilder.equal(fieldExpr, powerbi.data.SQExprBuilder.text(value));
                 return powerbi.data.createDataViewScopeIdentity(expr);
             });
-        
+
             // Metadata, describes the data columns, and provides the visual with hints
             // so it can decide how to best represent the data
             var dataViewMetadata: powerbi.DataViewMetadata = {
@@ -64,22 +73,62 @@ module powerbi.visuals.sampleDataViews {
                         type: powerbi.ValueType.fromDescriptor({ text: true })
                     },
                     {
-                        displayName: 'Sales Amount (2014)',
+                        displayName: 'Sales Amount (2016)',
                         isMeasure: true,
-                        format: "$0,000.00",
-                        queryName: 'sales1',
-                        groupName: '2014',
-                        type: powerbi.ValueType.fromDescriptor({ numeric: true }),
-                        objects: { dataPoint: { fill: { solid: { color: 'purple' } } } },
+                        format: "00.00%",
+                        queryName: 'sales2',
+                        groupName: 'Two thousand sixteen (2016)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
                         roles: { Y: true }
                     },
                     {
                         displayName: 'Sales Amount (2015)',
                         isMeasure: true,
-                        format: "$0,000.00",
-                        queryName: 'sales2',
-                        groupName: '2015',
-                        type: powerbi.ValueType.fromDescriptor({ numeric: true }),
+                        format: "00.00%",
+                        queryName: 'sales1',
+                        groupName: 'Two thousand fifteen (2015)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
+                        objects: { dataPoint: { fill: { solid: { color: 'purple' } } } },
+                        roles: { Y: true }
+                    },
+                    {
+                        displayName: 'Sales Amount (2014)',
+                        isMeasure: true,
+                        format: "00.00%",
+                        queryName: 'sales1',
+                        groupName: 'Two thousand fourteen (2014)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
+                        objects: { dataPoint: { fill: { solid: { color: 'blue' } } } },
+                        roles: { Y: true }
+                    },
+                    {
+                        displayName: 'Sales Amount (2013)',
+                        isMeasure: true,
+                        format: "00.00%",
+                        queryName: 'sales1',
+                        groupName: 'Two thousand thirteen (2013)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
+                        objects: { dataPoint: { fill: { solid: { color: 'yellow' } } } },
+                        roles: { Y: true }
+                    },
+                    {
+                        displayName: 'Sales Amount (2012)',
+                        isMeasure: true,
+                        format: "00.00%",
+                        queryName: 'sales1',
+                        groupName: 'Two thousand twelve (2012)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
+                        objects: { dataPoint: { fill: { solid: { color: 'magenta' } } } },
+                        roles: { Y: true }
+                    },
+                    {
+                        displayName: 'Sales Amount (2011)',
+                        isMeasure: true,
+                        format: "00.00%",
+                        queryName: 'sales1',
+                        groupName: 'Two thousand eleven  (2011)',
+                        type: ValueType.fromPrimitiveTypeAndCategory(PrimitiveType.Double),
+                        objects: { dataPoint: { fill: { solid: { color: 'gold' } } } },
                         roles: { Y: true }
                     }
                 ]
@@ -88,19 +137,39 @@ module powerbi.visuals.sampleDataViews {
             var columns = [
                 {
                     source: dataViewMetadata.columns[1],
-                    // Sales Amount for 2014
+                    // Sales Amount for 2016
                     values: this.sampleData[0],
                 },
                 {
                     source: dataViewMetadata.columns[2],
                     // Sales Amount for 2015
                     values: this.sampleData[1],
+                },
+                {
+                    source: dataViewMetadata.columns[3],
+                    // Sales Amount for 2014
+                    values: this.sampleData[2],
+                },
+                {
+                    source: dataViewMetadata.columns[4],
+                    // Sales Amount for 2013
+                    values: this.sampleData[3],
+                },
+                {
+                    source: dataViewMetadata.columns[5],
+                    // Sales Amount for 2012
+                    values: this.sampleData[4],
+                },
+                {
+                    source: dataViewMetadata.columns[6],
+                    // Sales Amount for 2011
+                    values: this.sampleData[5],
                 }
             ];
 
             var dataValues: DataViewValueColumns = DataViewTransform.createValueColumns(columns);
             var tableDataValues = categoryValues.map(function (countryName, idx) {
-                return [countryName, columns[0].values[idx], columns[1].values[idx]];
+                return [countryName, columns[0].values[idx], columns[1].values[idx], columns[2].values[idx], columns[3].values[idx], columns[4].values[idx], columns[5].values[idx]];
             });
 
             return [{
@@ -121,7 +190,6 @@ module powerbi.visuals.sampleDataViews {
             }];
         }
 
-        
         public randomize(): void {
 
             this.sampleData = this.sampleData.map((item) => {
@@ -130,6 +198,6 @@ module powerbi.visuals.sampleDataViews {
 
             this.sampleSingleData = this.getRandomValue(this.sampleMin, this.sampleMax);
         }
-        
+
     }
 }

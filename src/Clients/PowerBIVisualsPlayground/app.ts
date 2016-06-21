@@ -57,7 +57,6 @@ module powerbi.visuals {
             "mekkoChart",
             "gantt",
             "sunburstCustom",
-            "timeline",
             "owlGauge"
         ];
 
